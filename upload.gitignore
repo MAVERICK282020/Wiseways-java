@@ -1,0 +1,7 @@
+target/
+*.class
+*.log
+.idea/
+.vscode/
+.env
+application-secret.properties

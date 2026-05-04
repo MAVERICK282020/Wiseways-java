@@ -1,0 +1,10 @@
+com\wiseways\service\DataService.class
+com\wiseways\config\RestTemplateConfig.class
+com\wiseways\service\AiService.class
+com\wiseways\model\RecommendRequest.class
+com\wiseways\config\CorsConfig$1.class
+com\wiseways\config\CorsConfig.class
+com\wiseways\controller\ApiController.class
+com\wiseways\MachineApplication.class
+com\wiseways\model\CollegeEntry.class
+com\wiseways\model\CollegeResult.class
