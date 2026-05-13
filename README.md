@@ -5,29 +5,6 @@ Full conversion of `machine.py` (Flask + pandas + scikit-learn) to
 
 ---
 
-## Python → Java mapping
-
-| Python (`machine.py`)                         | Java equivalent                                |
-|-----------------------------------------------|------------------------------------------------|
-| `Flask(__name__)`                             | `@SpringBootApplication` + `@RestController`   |
-| `CORS(app)` (flask-cors)                      | `CorsConfig.java`                              |
-| `pd.read_csv("uptac2.csv", encoding='latin1')`| `DataService.readCsv()` via OpenCSV            |
-| `re.sub(r'[^a-zA-Z0-9\s]', '', col)`         | `DataService.clean()`                          |
-| `df.rename(columns={...})`                    | Column-index lookup map                        |
-| `pd.to_numeric(…, errors='coerce')`           | `parseRank()` — strips `\D`, returns `NaN`     |
-| `df.dropna()`                                 | Null / `NaN` guard inside the parse loop       |
-| `drop_duplicates(keep='last')`                | `LinkedHashMap` dedup (last-write wins)        |
-| `branch.astype('category').cat.codes`         | Sorted list → integer index map                |
-| `RandomForestRegressor` *(trained, not called in /recommend)* | Rank-based sort (see ML note) |
-| `OpenAI(base_url=…, api_key=…)`              | `AiService` with Spring `RestTemplate`         |
-| `@app.route('/')`                             | `@GetMapping("/")`                             |
-| `@app.route('/ask', methods=['POST'])`        | `@PostMapping("/ask")`                         |
-| `@app.route('/recommend', methods=['POST'])`  | `@PostMapping("/recommend")`                   |
-| `jsonify({...})`                              | `ResponseEntity<Map<String, Object>>`          |
-| `app.run(port=5000)`                          | `server.port=5000` in `application.properties` |
-
----
-
 ## ML note
 
 `machine.py` trained a `RandomForestRegressor` but the live `/recommend` route
