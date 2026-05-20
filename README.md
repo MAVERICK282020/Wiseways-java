@@ -125,3 +125,16 @@ nvidia.api.key=YOUR_API_KEY_HERE
 nvidia.api.model=meta/llama-3.1-8b-instruct
 csv.primary=uptac2.csv
 ```
+
+## API Testing & Validation
+
+The WiseWays recommendation API was tested using Postman with automated post-response scripts.
+
+### Tested Endpoint
+
+```http
+POST /recommend
+
+### Postman Test Result Screenshot
+
+![Postman API Test Result](assets/api-testing-result.png)
